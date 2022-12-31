@@ -117,7 +117,6 @@ const WordsPage = () => {
         ))}
       </div>
     </div>
-    </main>
     </>
   );
 };
