@@ -43,6 +43,11 @@ const WordsPage = () => {
   };
 
   return (
+     <Head>
+      <title>DomainTLDR - Word Generator</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name='description' content='Word Generator'/>
+    </Head>
     <div className="grid p-4">
       <div className='p-4 pb-10'>
         <h1 className='text-2xl font-bold mb-4'>DomainTLDR</h1>
