@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 
+type Word = {
+  word: string
+};
+
 const WordsPage = () => {
-  const [relatedWords, setRelatedWords] = useState([]);
-  const [rhymingWords, setRhymingWords] = useState([]);
-  const [adjWords, setAdjWords] = useState([]);
+  const [relatedWords, setRelatedWords] = useState<Word[]>([]);
+  const [rhymingWords, setRhymingWords] = useState<Word[]>([]);
+  const [adjWords, setAdjWords] = useState<Word[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchTerm1, setSearchTerm1] = useState('');
   const [searchTerm2, setSearchTerm2] = useState('');
@@ -60,7 +64,7 @@ const WordsPage = () => {
         </button>
       </form>
       <div className="grid grid-cols-3 md:grid-cols-6 w-auto gap-4">
-        {relatedWords.map((word) => (
+        {relatedWords.map((word: Word) => (
           <div key={word.word} className="flex items-center justify-center h-10 bg-gray-400 rounded-md">
             {word.word}
           </div>
@@ -80,7 +84,7 @@ const WordsPage = () => {
         </button>
       </form>
       <div className="grid grid-cols-3 md:grid-cols-6 w-auto gap-4">
-        {rhymingWords.map((word) => (
+        {rhymingWords.map((word: Word) => (
           <div key={word.word} className="flex items-center justify-center h-10 bg-gray-400 rounded-md">
             {word.word}
           </div>
@@ -100,7 +104,7 @@ const WordsPage = () => {
         </button>
       </form>
       <div className="grid grid-cols-3 md:grid-cols-6 w-auto gap-4">
-        {adjWords.map((word) => (
+        {adjWords.map((word: Word) => (
           <div key={word.word} className="flex items-center justify-center h-10 bg-gray-400 rounded-md">
             {word.word}
           </div>
