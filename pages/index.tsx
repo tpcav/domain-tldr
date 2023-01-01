@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import Nav from '../dashboard/Nav';
@@ -93,6 +94,7 @@ import Nav from '../dashboard/Nav';
       <nav className="bg-white shadow-md fixed top-0 w-full">
         <div className="container mx-auto p-6 flex py-2 items-center justify-between">
           <Link href="/" className="font-bold text-2xl text-gray-900">DomainTLDR</Link>
+          <img src='./word_mints.png' width={75}></img>
           <ul className="md:flex md:items-center">
             <li className="mr-6">
               <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
