@@ -11,16 +11,19 @@ import Nav from '../dashboard/Nav';
     const [relatedWords, setRelatedWords] = useState<Word[]>([]);
     const [rhymingWords, setRhymingWords] = useState<Word[]>([]);
     const [adjWords, setAdjWords] = useState<Word[]>([]);
+    const [constWords, setConstWords] = useState<Word[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchTerm1, setSearchTerm1] = useState('');
     const [searchTerm2, setSearchTerm2] = useState('');
+    const [searchTerm3, setSearchTerm3] = useState('');
     const [showRelatedWords, setShowRelatedWords] = useState(false);
     const [showRhymingWords, setShowRhymingWords] = useState(false);
     const [showAdjWords, setShowAdjWords] = useState(false);
+    const [showConstWords, setShowConstWords] = useState(false);
 
   const fetchRelatedWords = async () => {
     const res = await fetch(
-      `https://api.datamuse.com/words?ml=${searchTerm}`
+      `https://api.datamuse.com/words?ml=${searchTerm}&max=27`
     );
     const data = await res.json();
     setRelatedWords(data);
@@ -28,7 +31,7 @@ import Nav from '../dashboard/Nav';
 
   const fetchRhymingWords = async () => {
     const res = await fetch(
-      `https://api.datamuse.com/words?rel_rhy=${searchTerm1}`
+      `https://api.datamuse.com/words?rel_rhy=${searchTerm1}&max=27`
     );
     const data = await res.json();
     setRhymingWords(data);
@@ -36,10 +39,18 @@ import Nav from '../dashboard/Nav';
 
   const fetchAdjWords = async () => {
     const res = await fetch(
-      `https://api.datamuse.com/words?rel_jjb=${searchTerm2}`
+      `https://api.datamuse.com/words?rel_jjb=${searchTerm2}&max=27`
     );
     const data = await res.json();
     setAdjWords(data);
+  };
+
+  const fetchConstWords = async () => {
+    const res = await fetch(
+      `https://api.datamuse.com/words?rel_cns=${searchTerm3}&max=27`
+    );
+    const data = await res.json();
+    setConstWords(data);
   };
 
   const handleRelatedSubmit = (event: any) => {
@@ -61,6 +72,13 @@ import Nav from '../dashboard/Nav';
     setSearchTerm2(event.currentTarget.elements.search.value);
     fetchAdjWords();
     setShowAdjWords(true);
+  };
+
+  const handleConstSubmit = (event: any) => {
+    event.preventDefault();
+    setSearchTerm3(event.currentTarget.elements.search.value);
+    fetchConstWords();
+    setShowConstWords(true);
   };
 
   return (
@@ -95,7 +113,7 @@ import Nav from '../dashboard/Nav';
       </div>
 
 
-      <h1 className="mt-5 text-lg font-bold text-center">Related Words</h1>
+      <h1 className="mt-2 text-lg font-bold text-center">Related Words</h1>
         <form onSubmit={handleRelatedSubmit} className="text-center mb-10">
         <input
           name="search"
@@ -168,6 +186,30 @@ import Nav from '../dashboard/Nav';
         </div>
       )}
 
+    <h1 className="text-lg font-bold text-center">Consonant Matches</h1>
+        <form onSubmit={handleConstSubmit} className="text-center mb-10">
+        <input
+          name="search"
+          type="text"
+          placeholder="Enter search term"
+          value={searchTerm3}
+          onChange={(event) => setSearchTerm3(event.target.value)}
+          className="bg-gray-200 rounded p-2"
+        />
+        <button type="submit" className="m-2 p-2 bg-blue-200 rounded-lg">
+          Search
+        </button>
+      </form>
+      {showConstWords && (
+        <div className="grid grid-cols-3 md:grid-cols-6 w-auto gap-4 p-2 mb-20">
+          {constWords.map((word: Word) => (
+            <div key={word.word} className="flex items-center justify-center h-10 bg-gray-400 rounded-md">
+              {word.word}
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className='flex justify-center items-center'>
         <Link href='https://domain-checkers-tpcav.vercel.app/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline w-72'>
           <h1 className='text-center m-2 p-2 bg-blue-200 rounded-lg'>
@@ -176,7 +218,7 @@ import Nav from '../dashboard/Nav';
         </Link>
       </div>
 
-      <footer className='text-center mt-24'>Made with
+      <footer className='text-center mt-10 p-4'>Made with
         <Link href='https://www.datamuse.com/api/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Datamuse API </Link>
         &
         <Link href='https://github.com/LayeredStudio/whoiser' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Whoiser Client.</Link>
