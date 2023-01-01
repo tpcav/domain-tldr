@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import {domainName} from './pages/api/whoiser.js';
 
 type Word = {
   word: string
@@ -136,42 +137,6 @@ const WordsPage = () => {
 };
 
 export default WordsPage;
-
-
-
-import requests
-
-# Replace these with your own Twitter API keys
-consumer_key = "YOUR_CONSUMER_KEY"
-consumer_secret = "YOUR_CONSUMER_SECRET"
-
-# Set up the authentication for the Twitter API
-auth = requests.auth.OAuth1(consumer_key, consumer_secret)
-
-# Set the base URL for the Twitter API
-base_url = "https://api.twitter.com/1.1"
-
-def check_username_availability(username):
-  # Make a request to the Twitter API to check the availability of the username
-  response = requests.get(f"{base_url}/users/username_available.json?username={username}", auth=auth)
-
-  # Check the response status code to determine if the username is available
-  if response.status_code == 204:
-    return True
-  elif response.status_code == 206:
-    return False
-  else:
-    # Handle any other unexpected status codes
-    raise Exception(f"Unexpected response from Twitter API: {response.status_code}")
-
-# Example usage: check if the username "twitter" is available
-username = "twitter"
-is_available = check_username_availability(username)
-
-if is_available:
-  print(f"Username '{username}' is available!")
-else:
-  print(f"Username '{username}' is not available.")
 
 
 

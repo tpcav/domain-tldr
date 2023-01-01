@@ -13,15 +13,22 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.1.1",
+    "axios": "^1.2.2",
+    "check-domain-availability": "^1.0.0",
+    "eslint-config-next": "^12.0.4",
+    "net": "^1.0.2",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.4"
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
+    "typescript": "4.9.4",
+    "whoiser": "^1.13.2"
   },
   "devDependencies": {
+    "@types/node-fetch": "^2.6.2",
     "autoprefixer": "^10.4.13",
+    "eslint": "^7.23.0",
     "postcss": "^8.4.20",
     "tailwindcss": "^3.2.4"
   }

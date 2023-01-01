@@ -80,7 +80,7 @@ import Nav from '../dashboard/Nav';
               <Link href="/" className="text-gray-600 hover:text-gray-900">Home</Link>
             </li>
             <li className="mr-6">
-              <Link href="/about" className="text-gray-600 hover:text-gray-900">About</Link>
+              <Link href="/" className="text-gray-600 hover:text-gray-900">About</Link>
             </li>
             <li className="mr-6">
               <Link href="mailto:cavalcantethomas@icloud.com" className="text-gray-600 hover:text-gray-900">Contact</Link>
@@ -167,6 +167,10 @@ import Nav from '../dashboard/Nav';
           ))}
         </div>
       )}
+
+      <h1 className='text-lg font-bold text-center'>
+        <Link href='https://domain-checkers-tpcav.vercel.app/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Domain Availability Check</Link>
+      </h1>
 
       <footer className='text-center mt-24'>Made with
         <Link href='https://www.datamuse.com/api/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Datamuse API</Link>
