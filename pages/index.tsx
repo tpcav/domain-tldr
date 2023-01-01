@@ -168,9 +168,13 @@ import Nav from '../dashboard/Nav';
         </div>
       )}
 
-      <h1 className='text-lg font-bold text-center'>
-        <Link href='https://domain-checkers-tpcav.vercel.app/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Domain Availability Check</Link>
-      </h1>
+      <div className='flex justify-center items-center'>
+        <Link href='https://domain-checkers-tpcav.vercel.app/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline w-72'>
+          <h1 className='text-center m-2 p-2 bg-blue-200 rounded-lg'>
+            Domain Availability Checker
+          </h1>
+        </Link>
+      </div>
 
       <footer className='text-center mt-24'>Made with
         <Link href='https://www.datamuse.com/api/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Datamuse API</Link>
