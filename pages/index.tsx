@@ -177,7 +177,9 @@ import Nav from '../dashboard/Nav';
       </div>
 
       <footer className='text-center mt-24'>Made with
-        <Link href='https://www.datamuse.com/api/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Datamuse API</Link>
+        <Link href='https://www.datamuse.com/api/' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Datamuse API </Link>
+        &
+        <Link href='https://github.com/LayeredStudio/whoiser' className='font-medium text-blue-600 dark:text-blue-500 hover:underline'> Whoiser Client.</Link>
       </footer>
     </div>
   );
